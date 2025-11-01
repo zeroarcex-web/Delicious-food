@@ -1,48 +1,69 @@
 body {
-    /* 1. Убираем стандартные отступы браузера */
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff5757, #ffa857);
+    font-family: system-ui, sans-serif;
+}
+
+/* --- HEADER --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    height: 70px;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* эффект стекла */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+}
+
+/* Заголовок */
+h1 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+/* MENU */
+ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
     margin: 0;
     padding: 0;
 }
 
-header {
-    /* 3. и 4. Делаем шапку контейнером Flexbox для выравнивания */
-    background-color: red;
-    color: white; 
-    display: flex; 
-    align-items: center; /* Выравниваем h1 и ul по вертикали (по центру) */
-    justify-content: space-between; /* Разносим h1 влево, а ul вправо */
-    padding: 10px; /* Внутренний отступ вокруг содержимого шапки */
-    height: 60px; /* Фиксированная высота шапки для стабильности */
-}
-
-h1 {
-    /* Убираем стандартные отступы заголовка, чтобы он не мешал выравниванию */
-    margin: 0; 
-    padding: 0 0 0 10px; /* Отступ слева, чтобы не прилипало к краю */
-    font-size: 1.5em;
-}
-
-ul {
-    /* 2. Убираем точки и лишние отступы списка */
-    list-style-type: none;
-    padding: 0; /* Убираем все внутренние отступы списка */
-    margin: 0; /* Убираем все внешние отступы списка */
-    
-    /* 3. Выстраиваем ссылки в ряд */
-    display: flex;
-    align-items: center; 
-    padding-right: 10px; /* Отступ справа, чтобы меню не прилипало к краю */
-}
-
-li {
-    /* Добавляем интервал между пунктами меню */
-    margin-right: 20px; /* ИСПРАВЛЕНИЕ: Добавлены пиксели (px) */
-}
-
 a {
-    /* Стиль самих ссылок */
-    text-decoration: none; /* Убираем подчеркивание */
-    color: rgb(255, 255, 255); /* Белый цвет текста */
-    padding: 5px 10px; 
-    display: block; /* Делаем ссылки блочными для лучшей области клика */
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    font-size: 16px;
+    padding: 5px 0;
+}
+
+/* красивое ховерание underline */
+a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: white;
+    transition: .3s;
+}
+
+a:hover::after {
+    width: 100%;
 }
